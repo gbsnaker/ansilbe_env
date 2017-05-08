@@ -5,3 +5,4 @@
 - include: software.yml
 - include: hostname.yml
 - include: hosts.yml
+- include: yumupdatesecuriy.yml

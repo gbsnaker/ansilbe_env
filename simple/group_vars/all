@@ -3,3 +3,4 @@
 
 dnsmasq_server: 10.10.22.123
 ntpserver: 59.106.180.168
+docker_storagedriver : /opt/docker_data

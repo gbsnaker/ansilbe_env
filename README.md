@@ -4,4 +4,6 @@
 3 add hostname  
 4 add  modify hosts common task
 5 add dnsmasq client and server
-
+6 add yum update --security -y
+7 install docker 
+8 

@@ -1,0 +1,7 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+- name: yum update 
+  shell: yum update --security -y
+  tags: yum
+
