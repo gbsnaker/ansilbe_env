@@ -1,7 +1,9 @@
-[webservers]
-web3
+[localenv]
+localhost
 
-[dbservers]
-web2
+[web]
+10.10.22.122   hostname="web01"
 
+[db]
+10.10.22.125   hostname="db01"
 
