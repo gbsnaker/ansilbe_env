@@ -1,5 +1,5 @@
 [localenv]
-localhost   ansible_ssh_host=127.0.0.1 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/home/vagrant/.ssh/id_rsa
+localhost  hostname="nat01" ansible_ssh_host=127.0.0.1 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/home/vagrant/.ssh/id_rsa
 
 [web]
 10.10.22.122   hostname="web01"  ansible_ssh_host=10.10.22.122 ansible_ssh_user=vagrant ansible_ssh_private_key_file=/home/vagrant/.ssh/id_rsa
