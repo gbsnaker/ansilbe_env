@@ -3,3 +3,4 @@
 
 - include: ntp.yml
 - include: software.yml
+- include: hostname.yml

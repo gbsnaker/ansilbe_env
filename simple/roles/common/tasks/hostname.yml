@@ -1,0 +1,6 @@
+---
+# modifiy the specific name 
+
+- name: modify hostname
+  shell:  "hostname {{ hostname }}"
+
