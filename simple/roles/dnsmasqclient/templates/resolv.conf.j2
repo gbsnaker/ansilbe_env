@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+{% if dnsmasq_server %}
+nameserver {{ dnsmasq_server }}
+{% endif %}

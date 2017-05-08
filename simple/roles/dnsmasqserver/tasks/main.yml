@@ -1,0 +1,15 @@
+---
+# tasks file for dnsmasqserver
+
+- name: Install dnsmasq
+  yum: name=dnsmasq state=present
+  tags: dnsmasq
+
+- name: copy dnsmasq.conf
+  template: src=dnsmasq.conf.j2 dest=/etc/dnsmasq.conf
+  tags: dnsmasq
+
+- name: restart the dnsmasq service
+  service: name=dnsmasq state=restarted enabled=yes
+  tags: dnsmasq
+

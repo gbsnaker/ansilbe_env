@@ -9,6 +9,29 @@
   roles:
     - common
 
+- name: applay dnsmasq to nat 
+  hosts: localenv
+  sudo: yes
+
+  roles:
+    - dnsmasqserver 
+
+- name: web01 configura 
+  hosts: web
+  sudo: yes
+
+  roles: 
+    - dnsmasqclient
+
+- name: db01 configura
+  hosts: web
+  sudo: yes
+
+  roles:
+    - dnsmasqclient
+
+
+
 #- name: configure and deploy the webservers and application code
 #  hosts: webservers
 #  remote_user: root
