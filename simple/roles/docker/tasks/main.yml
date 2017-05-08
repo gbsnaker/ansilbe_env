@@ -1,6 +1,24 @@
 ---
 # tasks file for docker
 
+- sysctl:
+    name: net.bridge.bridge-nf-call-iptables
+    value: 1
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+
+
+
+- sysctl:
+    name: net.bridge.bridge-nf-call-ip6tables
+    value: 1
+    sysctl_set: yes
+    state: present
+    reload: yes
+
+
 - name: ensure config folder is present
   file:
     path: /etc/docker
@@ -11,30 +29,27 @@
     path: /opt/docker_data
     state: directory
 
-
 - name: ensure run shell dirs is present
   file:
     path: /opt/run
     state: directory
 
+- name: install python-setuptools
+  yum:
+    name: python-setuptools
+    state: latest
 
+- easy_install:
+    name: pip
+    state: latest
 
-
-- name: Install python setup tools
-    yum: name=python-setuptools
-    tags: docker
-
-- name: Install Pypi
-    easy_install: name=pip
-    tags: docker
-
-- name: Install docker-py
-    pip: name=docker-py
-    tags: docker
+- pip:
+    name: docker-py
 
 - name: Install Docker
-    yum: name=docker state=latest
-    tags: docker
+  yum: 
+    name: docker 
+    state: latest
 
 #- name: copy daemon.json 
 #    template: src=daemon.json.j2 dest=/etc/docker/daemon.j2
@@ -56,12 +71,11 @@
     - restart docker
 
 
-- name: Make sure Docker is running
-    service: name=docker state=running
-    tags: docker
+- service: 
+    name: docker 
+    state: started
 
-- name: ensure starts on system boot
-  service:
+
+- service:
     name: docker
     enabled: yes
-

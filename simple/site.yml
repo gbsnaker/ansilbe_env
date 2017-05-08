@@ -3,33 +3,34 @@
 
 - name: apply common configuration to all nodes
   hosts: all
-  sudo: yes
-  #remote_user: root
+  become: yes
+  #become_user: root
 
   roles:
     - common
 
 - name: applay dnsmasq to nat 
   hosts: localenv
-  sudo: yes
+  become: yes
 
   roles:
     - dnsmasqserver 
 
 - name: web01 configura 
   hosts: web
-  sudo: yes
+  become: yes
 
   roles: 
     - dnsmasqclient
+    - docker
 
 - name: db01 configura
-  hosts: web
-  sudo: yes
+  hosts: db
+  become: yes
 
   roles:
     - dnsmasqclient
-
+    - docker
 
 
 #- name: configure and deploy the webservers and application code
