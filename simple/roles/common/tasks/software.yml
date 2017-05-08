@@ -1,0 +1,7 @@
+---
+- name: Install dnsmasq ntp snoopy
+  yum: name={{ item }} state=present
+  with_items:
+   - dnsmasq
+   - git
+   - awscli
